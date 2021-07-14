@@ -28,7 +28,7 @@ import { FilmesModule } from './filmes/filmes.module';
     AppRoutingModule,
     FilmesModule
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt' }],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-br' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
