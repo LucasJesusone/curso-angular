@@ -15,4 +15,4 @@ import { ListagemFilmesComponent } from './listagem-filmes/listagem-filmes.compo
   ],
   declarations: [CadastroFilmesComponent, ListagemFilmesComponent]
 })
-export class FilmesModule { }
+export class  FilmesModule { }

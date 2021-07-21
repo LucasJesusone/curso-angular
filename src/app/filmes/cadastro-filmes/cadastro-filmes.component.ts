@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'dio-cadastro-filmes',
@@ -15,8 +15,13 @@ export class CadastroFilmesComponent implements OnInit {
   ngOnInit() {
 
     this.options = this.fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
+      title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength]],
+      urlPhoto: ['', Validators.required],
+      dtLancamento: ['', Validators.required],
+      description: [''],
+      nota: ['0', [Validators.required, Validators.min(0), Validators.max(10)]],
+      urlIMDb: ['', Validators.minLength(10)],
+      gender: ['', Validators.required]
     });
 
   }
