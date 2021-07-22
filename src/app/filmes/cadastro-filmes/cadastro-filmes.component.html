@@ -1,7 +1,7 @@
 <mat-toolbar class="app-title">Cadastrar Filme</mat-toolbar>
 <div class="main-div">
   <mat-card class="center width50" >
-    <form [formGroup]="options">
+    <form [formGroup]="form">
       <mat-card-content >
           <mat-form-field class="full-width">
             <input matInput placeholder="Título" formControlName="title">
@@ -10,7 +10,7 @@
             <input matInput placeholder="Link Foto" formControlName="urlPhoto">
           </mat-form-field>
           <mat-form-field class="full-width">
-              <input matInput [matDatepicker]="picker" placeholder="Data de Lançamento" formControlName="dtLancamento">
+              <input matInput [matDatepicker]="picker" placeholder="Data de Lançamento" formControlName="dtLancamento" readonly (click)="picker.open()">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -18,7 +18,13 @@
             <textarea matInput placeholder="Descrição" formControlName="description"></textarea>
           </mat-form-field>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Nota IMDb" formControlName="nota">
+            <input matInput 
+            placeholder="Nota IMDb"
+            min="0"
+            max="10"
+            step="1"
+            type="number" 
+            formControlName="nota">
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput placeholder="Link IMDb" formControlName="urlIMDb">
@@ -35,8 +41,9 @@
         </mat-card-content>
       
         <mat-card-actions>
-          <button color="accent" mat-raised-button>Salvar</button>
-          <button color="warn" mat-raised-button>Cancelar</button>
+          <button color="accent" mat-raised-button (click)="save()" [disabled]="submitted || !form.valid">Salvar</button>
+          <button color="warn" mat-raised-button (click)="goBack()">Cancelar</button>
+          <button color="warn" mat-raised-button (click)="resetForm()">Limpar Formulário</button>
         </mat-card-actions>
       </form>
   </mat-card>
