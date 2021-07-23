@@ -3,24 +3,39 @@
   <mat-card class="center width50" >
     <form [formGroup]="form">
       <mat-card-content >
-          <mat-form-field class="full-width">
-          <div class="form-group">
-            <input matInput placeholder="Título" formControlName="title">
-          </div>
-            <ng-container *ngIf="form.get('title').invalid && form.get('title').touched">
-              <p class="caption status-danger" *ngIf="form.get('title').errors.required">
-                Titulo é obrigatório
+        <mat-form-field class="full-width">
+              <input type="text" matInput fullWidth id="title" placeholder="Título"
+                  formControlName="title" required>
+        </mat-form-field>
+        <div class="full-width">
+          <ng-container *ngIf="form.get('title').invalid && form.get('title').touched">
+              <p class="caption text-warning" *ngIf="form.get('title').errors.required">
+                  Campo é Obrigatório
               </p>
-            </ng-container>
-          </mat-form-field>
+          </ng-container>
+        </div>
           <mat-form-field class="full-width">
             <input matInput placeholder="Link Foto" formControlName="urlPhoto">
           </mat-form-field>
+          <div class="full-width">
+            <ng-container *ngIf="form.get('urlPhoto').invalid && form.get('urlPhoto').touched">
+                <p class="caption text-warning" *ngIf="form.get('urlPhoto').errors.required">
+                    Campo é Obrigatório
+                </p>
+            </ng-container>
+          </div>
           <mat-form-field class="full-width">
               <input matInput [matDatepicker]="picker" placeholder="Data de Lançamento" formControlName="dtLancamento" readonly (click)="picker.open()">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
+            <div class="full-width">
+              <ng-container *ngIf="form.get('dtLancamento').invalid && form.get('dtLancamento').touched">
+                  <p class="caption text-warning" *ngIf="form.get('dtLancamento').errors.required">
+                      Campo é Obrigatório
+                  </p>
+              </ng-container>
+            </div>
           <mat-form-field class="full-width">
             <textarea matInput placeholder="Descrição" formControlName="description"></textarea>
           </mat-form-field>
@@ -33,6 +48,13 @@
             type="number" 
             formControlName="nota">
           </mat-form-field>
+          <div class="full-width">
+            <ng-container *ngIf="form.get('nota').invalid && form.get('nota').touched">
+                <p class="caption text-warning" *ngIf="form.get('nota').errors.required">
+                    Campo é Obrigatório
+                </p>
+            </ng-container>
+          </div>
           <mat-form-field class="full-width">
             <input matInput placeholder="Link IMDb" formControlName="urlIMDb">
           </mat-form-field>
@@ -45,6 +67,13 @@
               <mat-option value="Terror">Terror</mat-option>
             </mat-select>
           </mat-form-field>
+          <div class="full-width">
+            <ng-container *ngIf="form.get('gender').invalid && form.get('gender').touched">
+                <p class="caption text-warning" *ngIf="form.get('gender').errors.required">
+                    Campo é Obrigatório
+                </p>
+            </ng-container>
+          </div>
         </mat-card-content>
       
         <mat-card-actions>
