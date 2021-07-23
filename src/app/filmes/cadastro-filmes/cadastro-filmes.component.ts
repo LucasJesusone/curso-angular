@@ -54,6 +54,8 @@ export class CadastroFilmesComponent implements OnInit {
       return
     }
 
+    console.log(this.form.value)
+
     alert('Success' + JSON.stringify(this.form.value, null, 4));
   }
 

@@ -4,7 +4,14 @@
     <form [formGroup]="form">
       <mat-card-content >
           <mat-form-field class="full-width">
+          <div class="form-group">
             <input matInput placeholder="Título" formControlName="title">
+          </div>
+            <ng-container *ngIf="form.get('title').invalid && form.get('title').touched">
+              <p class="caption status-danger" *ngIf="form.get('title').errors.required">
+                Titulo é obrigatório
+              </p>
+            </ng-container>
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput placeholder="Link Foto" formControlName="urlPhoto">
