@@ -32,12 +32,12 @@ export class CadastroFilmesComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength]],
+      title: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       urlPhoto: ['', Validators.required],
       dtLancamento: ['', Validators.required],
-      description: [''],
+      description: ['', [Validators.maxLength(100)]],
       nota: ['0', [Validators.required, Validators.min(0), Validators.max(10)]],
-      urlIMDb: ['', Validators.minLength(10)],
+      urlIMDb: ['', Validators.required],
       gender: ['', Validators.required]
     });
 

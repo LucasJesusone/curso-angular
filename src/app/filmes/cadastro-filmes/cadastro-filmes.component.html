@@ -12,6 +12,12 @@
               <p class="caption text-warning" *ngIf="form.get('title').errors.required">
                   Campo é Obrigatório
               </p>
+              <p class="caption text-warning" *ngIf="form.get('title').errors.minlength">
+                Deve conter no minimo 3 caracteres
+            </p>
+            <p class="caption text-warning" *ngIf="form.get('title').errors.maxlength">
+                Deve conter no máximo 10 caracteres
+          </p>
           </ng-container>
         </div>
           <mat-form-field class="full-width">
@@ -39,6 +45,13 @@
           <mat-form-field class="full-width">
             <textarea matInput placeholder="Descrição" formControlName="description"></textarea>
           </mat-form-field>
+          <div class="full-width">
+            <ng-container *ngIf="form.get('nota').invalid && form.get('nota').touched">
+                <p class="caption text-warning" *ngIf="form.get('nota').errors.maxlength">
+                    Deve conter no máximo 100 caracteres
+                </p>
+            </ng-container>
+          </div>
           <mat-form-field class="full-width">
             <input matInput 
             placeholder="Nota IMDb"
@@ -58,6 +71,13 @@
           <mat-form-field class="full-width">
             <input matInput placeholder="Link IMDb" formControlName="urlIMDb">
           </mat-form-field>
+          <div class="full-width">
+            <ng-container *ngIf="form.get('urlIMDb').invalid && form.get('urlIMDb').touched">
+                <p class="caption text-warning" *ngIf="form.get('urlIMDb').errors.required">
+                  Campo é Obrigatório
+                </p>
+            </ng-container>
+          </div>
           <mat-form-field class="full-width">
             <mat-select placeholder="Gênero" formControlName="gender">
               <mat-option value="Ação">Açao</mat-option>
@@ -78,7 +98,7 @@
       
         <mat-card-actions>
           <button color="accent" mat-raised-button (click)="save()" [disabled]="submitted || !form.valid">Salvar</button>
-          <button color="warn" mat-raised-button (click)="goBack()">Cancelar</button>
+          <button color="warn" mat-raised-button (click)="goBack()">Voltar</button>
           <button color="warn" mat-raised-button (click)="resetForm()">Limpar Formulário</button>
         </mat-card-actions>
       </form>
