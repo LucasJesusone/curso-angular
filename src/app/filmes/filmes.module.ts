@@ -1,3 +1,5 @@
+import { FieldsModule } from './../shared/components/fields/fields.module';
+import { InputTextComponent } from './../shared/components/fields/input-text/input-text.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -12,6 +14,7 @@ import { ListagemFilmesComponent } from './listagem-filmes/listagem-filmes.compo
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    FieldsModule
   ],
   declarations: [CadastroFilmesComponent, ListagemFilmesComponent]
 })

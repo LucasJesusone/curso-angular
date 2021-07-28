@@ -68,6 +68,8 @@
     "@angular/language-service": "10.0.10",
     "@compodoc/compodoc": "^1.1.11",
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "@ngrx/schematics": "^12.3.0",
+    "@schematics/angular": "^7.0.7",
     "@types/d3-color": "1.0.5",
     "@types/googlemaps": "^3.39.12",
     "@types/jasmine": "2.5.54",

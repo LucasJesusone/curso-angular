@@ -43,7 +43,10 @@ export class CadastroFilmesComponent implements OnInit {
 
   }
 
-
+  
+  resetForm(): void{
+    this.form.reset()
+  }
   goBack() {
     this.router.navigate(['/filmes'])
   }
@@ -59,7 +62,4 @@ export class CadastroFilmesComponent implements OnInit {
     alert('Success' + JSON.stringify(this.form.value, null, 4));
   }
 
-  resetForm(): void{
-    this.form.reset()
-  }
 }
