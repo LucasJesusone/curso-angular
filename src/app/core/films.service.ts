@@ -16,4 +16,8 @@ export class FilmsService {
   save(movie: Movie): Observable<Movie> {
     return this.httpCliente.post<Movie>(url, movie)
   }
+
+  getAll(): Observable<Movie[]> {
+    return this.httpCliente.get<Movie[]>(url);
+  }
 }

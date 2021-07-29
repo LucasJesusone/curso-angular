@@ -1,3 +1,5 @@
+import { Movie } from './../../shared/models/Movie';
+import { FilmsService } from './../../core/films.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListagemFilmesComponent implements OnInit {
 
-  constructor() { }
+  movies: Movie[];
+
+  constructor(private service: FilmsService) { }
 
   ngOnInit() {
-
-  }
-
-  open() {
+    this.service.getAll().subscribe((movies: Movie[]) => this.movies = movies)
   }
 
 }
