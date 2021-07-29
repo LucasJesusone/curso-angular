@@ -1,16 +1,19 @@
 <mat-toolbar class="app-title">Cadastrar Filme</mat-toolbar>
 <div class="main-div">
   <mat-card class="center width50" >
-    <form [formGroup]="form">
+    <form autocomplete="off" novalidate [formGroup]="form">
       <mat-card-content >
         <input-text title="Título" controlName="title" [formGroup]="form"></input-text>
         <input-text title="Link Photo" controlName="urlPhoto" [formGroup]="form"></input-text>
+        <input-date title="Data de Lançamento" controlName="dtLancamento" [formGroup]="form"></input-date>
+        <input-textarea title="Descrição" controlName="description" [formGroup]="form"></input-textarea>
         <input-text title="Link IMDb" controlName="urlIMDb" [formGroup]="form"></input-text>
-        <input-textarea description="Descrição" controlName="description" [formGroup]="form"></input-textarea>
+        <input-number title="Nota IMDb" controlName="nota" [formGroup]="form" min=0 max=10 step=0.1></input-number>
+        <input-select title="Gênero" [options]="genders" controlName="gender" [formGroup]="form"></input-select>
         </mat-card-content>
       
         <mat-card-actions>
-          <button color="accent" mat-raised-button (click)="save()" [disabled]="submitted || !form.valid">Salvar</button>
+          <button color="accent" mat-raised-button (click)="submit()" [disabled]="submitted || !form.valid">Salvar</button>
           <button color="warn" mat-raised-button (click)="goBack()">Voltar</button>
           <button color="warn" mat-raised-button (click)="resetForm()">Limpar Formulário</button>
         </mat-card-actions>
