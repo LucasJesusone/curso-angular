@@ -19,7 +19,7 @@ export class FieldsValidatorsService {
     return control.hasError(errorName);
   }
 
-  lengthValidar(control: AbstractControl, errorName: string): number {
+  lengthValidator(control: AbstractControl, errorName: string): number {
     const error = control.errors[errorName];
     return error.requiredLength || error.min || error.max || 0;
   }
