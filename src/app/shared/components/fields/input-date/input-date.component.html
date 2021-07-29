@@ -1,12 +1,17 @@
-<mat-form-field class="full-width">
-  <input matInput [matDatepicker]="picker" placeholder="Data de Lançamento" formControlName="dtLancamento" readonly (click)="picker.open()">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-<div class="full-width">
-  <!-- <ng-container *ngIf="form.get('dtLancamento').invalid && form.get('dtLancamento').touched">
-      <p class="caption text-warning" *ngIf="form.get('dtLancamento').errors.required">
-          Campo é Obrigatório
-      </p>
-  </ng-container> -->
+<div [formGroup]="formGroup">
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [placeholder]="title"
+      [name]="controlName"
+      [formControlName]="controlName"
+      readonly
+      (click)="picker.open()"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+
+    <mat-error *ngIf="validators.hasErrorValidar(formControl, 'required')">Campo Obrigatório</mat-error>
+  </mat-form-field>
 </div>

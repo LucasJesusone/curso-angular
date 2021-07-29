@@ -8,7 +8,7 @@ import { FieldsValidatorsService } from '../fields-validators.service';
   styleUrls: ['./input-textarea.component.scss']
 })
 export class InputTextareaComponent {
-  @Input() description: string;
+  @Input() title: string;
   @Input() formGroup: FormGroup;
   @Input() controlName: string;
 

@@ -1,16 +1,19 @@
-<mat-form-field class="full-width">
-  <input matInput 
-  placeholder="Nota IMDb"
-  min="0"
-  max="10"
-  step="1"
-  type="number" 
-  formControlName="nota">
-</mat-form-field>
-<div class="full-width">
-  <!-- <ng-container *ngIf="form.get('nota').invalid && form.get('nota').touched">
-      <p class="caption text-warning" *ngIf="form.get('nota').errors.required">
-          Campo é Obrigatório
-      </p>
-  </ng-container> -->
+<div [formGroup]="formGroup">
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      [placeholder]="title"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      type="number"
+      [name]="controlName"
+      [formControlName]="controlName"
+    />
+
+    <mat-error *ngIf="validators.hasErrorValidar(formControl, 'required')">Campo Obrigatório</mat-error>
+    <mat-error *ngIf="validators.hasErrorValidar(formControl, 'min')">O Campo Requer o valor mínimo de: {{validators.lengthValidator(formControl, 'min')}}</mat-error>
+    <mat-error *ngIf="validators.hasErrorValidar(formControl, 'max')">O Campo Requer o valor máximo de: {{validators.lengthValidator(formControl, 'max')}}</mat-error>
+  </mat-form-field>
+
 </div>
