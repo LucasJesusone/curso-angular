@@ -81,13 +81,14 @@ export class CadastroFilmesComponent implements OnInit {
     this.router.navigate(["/filmes"]);
   }
 
+
+
   submit(): void {
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
     console.log(this.form.value);
-
     const movie = this.form.getRawValue() as Movie;
     this.save(movie);
 
