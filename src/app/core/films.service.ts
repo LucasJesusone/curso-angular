@@ -21,6 +21,11 @@ export class FilmsService {
     return this.httpCliente.get<Movie[]>(url, { params: configParams });
   }
 
+  getAllWithoutFilter(): Observable<Movie[]> {
+    // const configParams = this.configService.configureParams()
+    return this.httpCliente.get<Movie[]>(url);
+  }
+
   view(id: number): Observable<Movie> {
     return this.httpCliente.get<Movie>(url + id)
   }
@@ -29,4 +34,10 @@ export class FilmsService {
   delete(id: number): Observable<void>{
     return this.httpCliente.delete<void>(url + id)
   }
+
+
+  edit(movie: Movie): Observable<Movie> {
+    return this.httpCliente.put<Movie>(url + movie.id, movie)
+  }
+  
 }

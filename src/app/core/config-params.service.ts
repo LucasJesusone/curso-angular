@@ -20,7 +20,7 @@ export class ConfigParamsService {
       httpParams = httpParams.set("q", config.search);
     }
     if (config.field) {
-      httpParams = httpParams.set(config.field.type, config.field.value.toString());
+      httpParams = httpParams.set(config.field.type, config.field.value);
     }
     httpParams = httpParams.set("_sort", "id");
     httpParams = httpParams.set("_order", "desc");

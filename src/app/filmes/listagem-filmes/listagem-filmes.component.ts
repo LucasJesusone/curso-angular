@@ -46,8 +46,8 @@ export class ListagemFilmesComponent implements OnInit {
 
   createForm() {
     this.filter = this.formBuilder.group({
-      text: [""],
-      gender: [""],
+      text: [null],
+      gender: [null],
     });
 
     this.filter.get("text").valueChanges.pipe(debounceTime(400)).subscribe((value: string) => {
@@ -57,7 +57,6 @@ export class ListagemFilmesComponent implements OnInit {
 
     this.filter.get("gender").valueChanges.pipe(debounceTime(400)).subscribe((val: string) => {
       this.config.field = { type: "gender", value: val };
-      console.log(this.config.field);
       this.resetConsulta();
     });
   }
@@ -66,11 +65,16 @@ export class ListagemFilmesComponent implements OnInit {
     this.listMovies();
   }
 
+  
+  cleanForm() {
+    this.service.getAllWithoutFilter().subscribe(res => this.movies = res)
+  }
+
   viewMovie(id: number): void  {
     this.router.navigateByUrl('/filmes/' + id)
   }
 
-  private listMovies(): void {
+   listMovies() {
     this.config.page++;
     this.service
       .getAll(this.config)
