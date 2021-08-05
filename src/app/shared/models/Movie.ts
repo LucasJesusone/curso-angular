@@ -1,10 +1,10 @@
 export interface Movie {
   id?: number;
-  titulo: string;
-  urlFoto?: string;
-  dtLancameto: Date;
-  descricao?: string;
+  title: string;
+  urlPhoto?: string;
+  dtLancamento: Date;
+  description?: string;
   nota: number;
   urlIMDb?: string;
-  genero: string;
+  gender: string;
 }
