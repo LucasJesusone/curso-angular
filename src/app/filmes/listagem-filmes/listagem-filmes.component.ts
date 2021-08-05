@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ConfigParams } from "./../../shared/models/config-params";
 import { debounceTime } from 'rxjs/operators'
 import { FormBuilder, FormGroup } from "@angular/forms";
@@ -24,7 +25,8 @@ export class ListagemFilmesComponent implements OnInit {
 
   constructor(
     private service: FilmsService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -64,11 +66,17 @@ export class ListagemFilmesComponent implements OnInit {
     this.listMovies();
   }
 
+  viewMovie(id: number): void  {
+    this.router.navigateByUrl('/filmes/' + id)
+  }
+
   private listMovies(): void {
     this.config.page++;
     this.service
       .getAll(this.config)
-      .subscribe((movies: Movie[]) => this.movies.push(...movies));
+      .subscribe((movies: Movie[]) => {
+        this.movies.push(...movies)
+      });
   }
 
   private resetConsulta(): void {
