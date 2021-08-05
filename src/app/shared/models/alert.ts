@@ -5,5 +5,5 @@ export interface Alert {
   btnCancel?: string;
   btnColorSucess: string;
   btnColorCancel: string;
-//   hasCloseBtn?: boolean;
+  hasCloseBtn?: boolean;
 }
