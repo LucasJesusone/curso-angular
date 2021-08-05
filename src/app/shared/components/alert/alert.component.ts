@@ -11,11 +11,11 @@ export class AlertComponent implements OnInit {
   alert = {
     title: "Sucesso",
     description: "Deu tudo certo",
-    btnSave: "Salvou",
+    btnSave: "OK",
     btnCancel: "Cancelar",
     btnColorSucess: "primary",
     btnColorCancel: 'warn',
-    // hasCloseBtn: false,
+    hasCloseBtn: false,
   } as Alert;
 
   constructor(
@@ -30,7 +30,7 @@ export class AlertComponent implements OnInit {
       this.alert.btnCancel = this.data.btnCancel || this.alert.btnCancel;
       this.alert.btnColorSucess = this.data.btnColorSucess || this.alert.btnColorSucess;
       this.alert.btnColorCancel = this.data.btnColorCancel || this.alert.btnColorCancel;
-      // this.alert.hasCloseBtn = this.data.hasCloseBtn || this.alert.hasCloseBtn;
+      this.alert.hasCloseBtn = this.data.hasCloseBtn || this.alert.hasCloseBtn;
     }
   }
 }

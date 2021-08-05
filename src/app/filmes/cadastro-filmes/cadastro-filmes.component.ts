@@ -46,22 +46,7 @@ export class CadastroFilmesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      title: [
-        "",
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(10),
-        ],
-      ],
-      urlPhoto: ["", Validators.required],
-      dtLancamento: ["", Validators.required],
-      description: ["", [Validators.maxLength(100)]],
-      nota: ["0", [Validators.required, Validators.min(0), Validators.max(10)]],
-      urlIMDb: ["", Validators.required],
-      gender: ["", Validators.required],
-    });
+    this.createForm()
 
     this.genders = [
       "Ação",
@@ -72,6 +57,18 @@ export class CadastroFilmesComponent implements OnInit {
       "Comédia",
       "Drama",
     ];
+  }
+
+  createForm() {
+    this.form = this.fb.group({
+      title: ["",[Validators.required,Validators.minLength(4),Validators.maxLength(10),],],
+      urlPhoto: ["", Validators.required],
+      dtLancamento: ["", Validators.required],
+      description: ["", [Validators.maxLength(100)]],
+      nota: ["0", [Validators.required, Validators.min(0), Validators.max(10)]],
+      urlIMDb: ["", Validators.required],
+      gender: ["", Validators.required],
+    });
   }
 
   resetForm(): void {
