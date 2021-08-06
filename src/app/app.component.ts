@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'dio-root',
-  templateUrl: './app.component.html',
+  template: `<dio-topo></dio-topo>`,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
